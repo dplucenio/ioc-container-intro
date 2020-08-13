@@ -1,5 +1,8 @@
 package io.plucen;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GreetingService {
 
   private final String greeting;
