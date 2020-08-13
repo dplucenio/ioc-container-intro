@@ -2,3 +2,4 @@
 *.iml
 target/*
 dependency-reduced-pom.xml
+/stale_outputs_checked

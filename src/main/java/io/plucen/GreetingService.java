@@ -2,7 +2,13 @@ package io.plucen;
 
 public class GreetingService {
 
+  private final String greeting;
+
+  public GreetingService(String greeting) {
+    this.greeting = greeting;
+  }
+
   public String getGreeting() {
-    return "Hello I come from the IoC container!";
+    return greeting;
   }
 }
