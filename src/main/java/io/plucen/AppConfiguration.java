@@ -7,12 +7,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfiguration {
 
   @Bean
-  public String helloGreeting() {
-    return "Hello! I'm a bean from the IoC container!";
-  }
-
-  @Bean
-  public GreetingService getGreetingService(String greeting) {
-    return new GreetingService(greeting);
+  public GreetingService getGreetingService() {
+    return new GreetingService();
   }
 }
