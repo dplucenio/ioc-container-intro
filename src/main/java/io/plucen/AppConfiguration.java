@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
@@ -16,7 +17,13 @@ public class AppConfiguration {
   String greetingStart;
 
   @Bean
-  public Integer getDefaultNumber() {
+  @Profile("dev")
+  public Integer getDevNumber() {
+    return 0;
+  }
+
+  @Bean
+  public Integer getProductionNumber() {
     return 42;
   }
 
