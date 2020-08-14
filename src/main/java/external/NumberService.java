@@ -14,6 +14,6 @@ public class NumberService {
   }
 
   public Integer getNumber() {
-    return number;
+    return number + (int) Math.round(Math.random() * 10);
   }
 }
