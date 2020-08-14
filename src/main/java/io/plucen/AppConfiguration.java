@@ -10,6 +10,11 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfiguration {
 
   @Bean
+  public Integer getDefaultNumber() {
+    return 42;
+  }
+
+  @Bean
   public String getDefaultGreeting() {
     return "Hello I come from the IoC container!";
   }

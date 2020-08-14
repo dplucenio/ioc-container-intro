@@ -1,11 +1,19 @@
 package external;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class NumberService {
 
-  public int getNumber() {
-    return 42;
+  private Integer number;
+
+  @Autowired
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  public Integer getNumber() {
+    return number;
   }
 }
