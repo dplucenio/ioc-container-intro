@@ -1,5 +1,6 @@
 package io.plucen;
 
+import external.NumberService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
@@ -8,6 +9,8 @@ public class App {
 
   public static void main(String[] args) {
     GreetingService greetingService = context.getBean(GreetingService.class);
+    NumberService numberService = context.getBean(NumberService.class);
     System.out.println(greetingService.getGreeting());
+    System.out.println(numberService.getNumber());
   }
 }
