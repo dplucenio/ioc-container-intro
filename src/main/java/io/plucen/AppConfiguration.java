@@ -1,36 +1,30 @@
 package io.plucen;
 
-import external.NumberService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
-@ComponentScan(basePackageClasses = {AppConfiguration.class, NumberService.class})
-@PropertySource("classpath:/application.properties")
-@PropertySource("classpath:/other.properties")
+@ComponentScan
 public class AppConfiguration {
+  @Bean("constantInteger")
+  public Integer getConstant() {
+    return 5;
+  }
 
-  @Value("${greetingStart}")
-  String greetingStart;
-
-  @Bean
-  @Profile("dev")
-  public Integer getDevNumber() {
-    return 0;
+  @Bean("maxInteger")
+  public Integer getMax() {
+    return 10;
   }
 
   @Bean
-  @Profile("production")
-  public Integer getProductionNumber() {
-    return 42;
+  @Primary
+  public String happyFinalMessage() {
+    return "What a great example, this is the end.";
   }
-
   @Bean
-  public String getDefaultGreeting(@Value("${greetingEnd}") String greetingEnd) {
-    return greetingStart + " " + greetingEnd;
+  public String bitterFinalMessage() {
+    return "What a stupid example, I'm glad this is over.";
   }
 }
