@@ -19,6 +19,7 @@ public class App {
     System.out.println(
         "constant integer used: " + context.getBean("constantInteger", Integer.class));
     System.out.println("max integer used: " + context.getBean("maxInteger", Integer.class));
+    System.out.println("\n" + context.getBean(String.class));
   }
 
   private static void runXTimes(int n, Runnable runnable) {
