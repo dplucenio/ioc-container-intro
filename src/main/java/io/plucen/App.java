@@ -1,6 +1,6 @@
 package io.plucen;
 
-import external.NumberService;
+import io.plucen.numbers.NumberService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
@@ -8,13 +8,22 @@ public class App {
       new AnnotationConfigApplicationContext(AppConfiguration.class);
 
   public static void main(String[] args) {
-    String profile = context.getEnvironment().getProperty("spring.profiles.active");
-    context.getEnvironment().setActiveProfiles(profile);
+    NumberService constantService = context.getBean("constantService", NumberService.class);
+    NumberService randomService = context.getBean("randomService", NumberService.class);
 
-    GreetingService greetingService = context.getBean(GreetingService.class);
-    NumberService numberService = context.getBean(NumberService.class);
+    runXTimes(10, () -> System.out.print(constantService.getNumber() + " "));
+    System.out.println();
+    runXTimes(10, () -> System.out.print(randomService.getNumber() + " "));
+    System.out.println();
 
-    System.out.println(greetingService.getGreeting());
-    System.out.println(numberService.getNumber());
+    System.out.println(
+        "constant integer used: " + context.getBean("constantInteger", Integer.class));
+    System.out.println("max integer used: " + context.getBean("maxInteger", Integer.class));
+  }
+
+  private static void runXTimes(int n, Runnable runnable) {
+    for (int i = 0; i < n; i++) {
+      runnable.run();
+    }
   }
 }
