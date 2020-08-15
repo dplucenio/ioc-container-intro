@@ -8,8 +8,12 @@ public class App {
       new AnnotationConfigApplicationContext(AppConfiguration.class);
 
   public static void main(String[] args) {
+    String profile = context.getEnvironment().getProperty("spring.profiles.active");
+    context.getEnvironment().setActiveProfiles(profile);
+
     GreetingService greetingService = context.getBean(GreetingService.class);
     NumberService numberService = context.getBean(NumberService.class);
+
     System.out.println(greetingService.getGreeting());
     System.out.println(numberService.getNumber());
   }

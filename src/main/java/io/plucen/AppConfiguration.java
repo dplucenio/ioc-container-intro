@@ -13,6 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:/application.properties")
 @PropertySource("classpath:/other.properties")
 public class AppConfiguration {
+
   @Value("${greetingStart}")
   String greetingStart;
 
@@ -23,6 +24,7 @@ public class AppConfiguration {
   }
 
   @Bean
+  @Profile("production")
   public Integer getProductionNumber() {
     return 42;
   }
