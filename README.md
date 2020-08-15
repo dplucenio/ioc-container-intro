@@ -10,8 +10,8 @@ The goal is to keep this as simple as possible and cover:
 - [ ] Primary Beans and Beans Qualifiers
 - [x] Components and ComponentScan
 - [x] Setting up packages to be scanned by ComponentScan
-- [ ] Options for dependency injection with Autowire
-- [ ] Resource, properties ans profiles
+- [X] Options for dependency injection with Autowire
+- [X] Resource, properties ans profiles
 
 Progress is going to be stored on different branches, starting from `1-one-bean`
 
