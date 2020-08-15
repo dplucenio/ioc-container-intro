@@ -7,7 +7,7 @@ The goal is to keep this as simple as possible and cover:
 
 - [x] Application Configuration and Beans
 - [ ] Beans scope
-- [ ] Primary Beans and Beans Qualifiers
+- [x] Primary Beans and Beans Qualifiers
 - [x] Components and ComponentScan
 - [x] Setting up packages to be scanned by ComponentScan
 - [ ] Options for dependency injection with Aurowire
