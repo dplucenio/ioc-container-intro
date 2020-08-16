@@ -9,12 +9,12 @@ public class RandomNumberService implements NumberService {
   private final Integer maximumValue;
 
   @Autowired
-  public RandomNumberService(@Qualifier("maxInteger") Integer aa) {
-    this.maximumValue = aa;
+  public RandomNumberService(@Qualifier("maxInteger") Integer maximumValue) {
+    this.maximumValue = maximumValue;
   }
 
   @Override
   public Integer getNumber() {
-    return (int) Math.round(Math.random() * 10);
+    return (int) Math.round(Math.random() * maximumValue);
   }
 }

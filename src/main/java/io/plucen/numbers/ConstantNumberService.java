@@ -10,12 +10,12 @@ public class ConstantNumberService implements NumberService {
   private final Integer constant;
 
   @Autowired
-  public ConstantNumberService(@Qualifier("constantInteger") Integer aa) {
-    this.constant = aa;
+  public ConstantNumberService(@Qualifier("constantInteger") Integer constant) {
+    this.constant = constant;
   }
 
   @Override
   public Integer getNumber() {
-    return 5;
+    return constant;
   }
 }
